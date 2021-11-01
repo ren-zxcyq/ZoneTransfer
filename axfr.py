@@ -16,7 +16,7 @@ def main():
         print(f'[*] Target Domain: {args.domain}')
 
     # Act
-    nses = dns.resolver.resolve(args.d, 'NS')
+    nses = dns.resolver.resolve(args.domain, 'NS')
     for n in nses:
         ns_record = dns.resolver.resolve(n.to_text(), 'A')
         print(f'[*] {n.to_text()} - {ns_record[0].address}\r\n\t----')
