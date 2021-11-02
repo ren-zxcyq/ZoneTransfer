@@ -25,8 +25,10 @@ def main():
                 print('\t----')
             except dns.xfr.TransferError as e:
                 print(f'Transfer denied!\r\n\t----')
+            except Exception as e:
+                print(f'Something went wrong while attempting to perform a zone transfer\r\n{str(e)}\r\n')
     except Exception as e:
-        print(f'Something went wrong!\r\n',str(e))
+        print(f'Something went wrong during the DNS resolving process!\r\n{str(e)}')
 
 
 if __name__ == '__main__':
